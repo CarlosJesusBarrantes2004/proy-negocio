@@ -1,0 +1,59 @@
+---
+import { ArrowRight, Play } from "lucide-react";
+import { Button } from "./ui/Button";
+---
+
+<section class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
+  <div
+    class="from-primary/10 via-background to-background absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="text-center lg:text-left">
+        <div
+          class="border-border bg-secondary text-muted-foreground mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              class="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+            ></span>
+            <span class="bg-primary relative inline-flex h-2 w-2 rounded-full"
+            ></span>
+          </span>
+          Disponibles para nuevos proyectos
+        </div>
+
+        <h1
+          class="text-foreground text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+        >
+          Construimos el <span class="text-primary">futuro digital</span> de tu negocio
+        </h1>
+
+        <p
+          class="text-muted-foreground mx-auto mt-6 max-w-xl text-lg text-pretty lg:mx-0"
+        >
+          Desarrollamos sitios web rápidos, aplicaciones móviles de alto
+          rendimiento y automatizaciones inteligentes. Tu visión, nuestra
+          tecnología.
+        </p>
+
+        <div
+          class="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
+        >
+          <Button>
+            Comenzar Proyecto
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+          <Button size="lg" variant="outline" className="gap-2 bg-transparent">
+            <Play className="h-4 w-4" />
+            Ver Nuestro Trabajo
+          </Button>
+        </div>
+      </div>
+
+      <div class="relative hidden lg:block"></div>
+    </div>
+  </div>
+</section>

@@ -1,11 +1,25 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// --- Importaciones ---
+// 1. Importamos el Layout que definimos arriba
+import Layout from "../layouts/Layout.astro";
+
+// 2. Importamos todos los componentes de la landing page (todos son .astro)
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Stats from "../components/Stats.astro";
+import CTA from "../components/CTA.astro";
+
+// Configuramos las propiedades del Layout
+const pageTitle = "Mi Landing Page - Transformando ideas";
+const pageDescription =
+  "Creamos soluciones tecnológicas a medida para tu negocio.";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={pageTitle} description={pageDescription}>
+  <Hero />
+  <Services />
+  <Stats />
+  <CTA />
 </Layout>
