@@ -1,6 +1,6 @@
 ---
 import { ArrowRight, Play } from "lucide-react";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 ---
 
 <section class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
@@ -42,18 +42,70 @@ import { Button } from "./ui/Button";
         <div
           class="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
         >
-          <Button>
+          <Button size="lg" className="gap-2 hover:cursor-pointer">
             Comenzar Proyecto
             <ArrowRight className="h-4 w-4" />
           </Button>
-          <Button size="lg" variant="outline" className="gap-2 bg-transparent">
+          <Button
+            size="lg"
+            variant="outline"
+            className="gap-2 bg-transparent hover:cursor-pointer"
+          >
             <Play className="h-4 w-4" />
             Ver Nuestro Trabajo
           </Button>
         </div>
       </div>
 
-      <div class="relative hidden lg:block"></div>
+      <div class="relative hidden lg:block">
+        <div class="relative aspect-square">
+          <div
+            class="from-primary/20 absolute inset-0 rounded-2xl bg-gradient-to-br to-transparent"
+          >
+          </div>
+          <div
+            class="bg-card border-border absolute inset-4 overflow-hidden rounded-xl border"
+          >
+            <div class="border-border flex items-center gap-2 border-b p-4">
+              <div class="flex gap-1.5">
+                <div class="h-3 w-3 rounded-full bg-red-500/80"></div>
+                <div class="h-3 w-3 rounded-full bg-yellow-500/80"></div>
+                <div class="h-3 w-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <span class="text-muted-foreground ml-2 font-mono text-xs"
+                >proyecto.tsx</span
+              >
+            </div>
+            <div class="p-4 font-mono text-sm">
+              <div class="text-muted-foreground">
+                <span class="text-pink-400">const</span>
+                <span class="text-blue-400">proyecto</span> = {"{"}
+              </div>
+              <div class="text-muted-foreground pl-4">
+                <span class="text-green-400">nombre</span>:{" "}
+                <span class="text-yellow-400">
+                  {'"'}Tu Idea{'"'}
+                </span>
+                ,
+              </div>
+              <div class="text-muted-foreground pl-4">
+                <span class="text-green-400">tech</span>:{" "}
+                <span class="text-yellow-400">
+                  {'"'}Moderna{'"'}
+                </span>
+                ,
+              </div>
+              <div class="text-muted-foreground pl-4">
+                <span class="text-green-400">resultado</span>:{" "}
+                <span class="text-primary">
+                  {'"'}Éxito{'"'}
+                </span>
+              </div>
+              <div class="text-muted-foreground">{"}"}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

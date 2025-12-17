@@ -1,11 +1,17 @@
 ---
-// 1. Script Frontmatter (Se ejecuta en el servidor/build time)
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { Globe, Server, Smartphone, Zap } from "lucide-react";
+const IconMap = { Globe, Server, Smartphone, Zap };
 
-// Definición de datos
-// Mantenemos la lista de servicios aquí, movida del archivo JS
 const services = [
   {
-    icon: "Globe", // Usaremos strings para mapear los íconos
+    icon: "Globe",
     title: "Desarrollo Frontend",
     description:
       "Creamos sitios web rápidos, seguros y escalables con Astro, Vue, Nuxt, React y Next.js. Carga instantánea y mejor SEO.",
@@ -33,22 +39,6 @@ const services = [
     features: ["n8n", "Python", "APIs", "Integraciones"],
   },
 ];
-
-// Importamos los componentes de UI de React.
-// Astro los usará para renderizar HTML en el servidor.
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../components/ui/card";
-
-// Importamos los íconos de Lucide como componentes de React
-// Nota: Necesitas que los íconos estén disponibles. Creamos un Mapa de Componentes.
-import { Globe, Server, Smartphone, Zap } from "lucide-react";
-
-const IconMap = { Globe, Server, Smartphone, Zap };
 ---
 
 <section id="servicios" class="py-20 md:py-32">
@@ -64,19 +54,14 @@ const IconMap = { Globe, Server, Smartphone, Zap };
     </div>
 
     <div class="grid gap-6 md:grid-cols-2">
-      {/* Usamos el método .map para iterar, igual que en React */}
       {
         services.map((service, index) => {
-          // Obtenemos el componente de ícono React usando la clave de string
           const IconComponent = IconMap[service.icon];
 
           return (
             // Las props de React se pasan normalmente. 'className' se convierte en 'class'
             // si el componente Card fuera un componente Astro nativo, pero como es React, se mantiene 'className'.
-            <Card
-              key={index}
-              className="bg-card border-border hover:border-primary/50 transition-colors group"
-            >
+            <Card className="bg-card border-border hover:border-primary/50 transition-colors group">
               <CardHeader>
                 <div class="flex items-center gap-4">
                   <div class="bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground rounded-lg p-3 transition-colors">
@@ -95,10 +80,7 @@ const IconMap = { Globe, Server, Smartphone, Zap };
                 </CardDescription>
                 <div class="mt-4 flex flex-wrap gap-2">
                   {service.features.map((feature, i) => (
-                    <span
-                      key={i}
-                      class="bg-secondary text-secondary-foreground inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
-                    >
+                    <span class="bg-secondary text-secondary-foreground inline-flex items-center rounded-full px-3 py-1 text-xs font-medium">
                       {feature}
                     </span>
                   ))}
