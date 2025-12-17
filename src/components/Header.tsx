@@ -3,9 +3,9 @@ import { Menu, X, Code2 } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
+  { label: "Nosotros", href: "#nosotros" },
   { label: "Servicios", href: "#servicios" },
   { label: "Tecnologías", href: "#tecnologias" },
-  { label: "Nosotros", href: "#nosotros" },
   { label: "Contacto", href: "#contacto" },
 ];
 
