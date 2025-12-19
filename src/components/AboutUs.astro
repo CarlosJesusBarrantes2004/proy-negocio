@@ -1,10 +1,9 @@
 ---
 import { Target, Users, ShieldCheck, Rocket } from "lucide-react";
 
-// Definimos los datos en el servidor (Build time)
 const values = [
   {
-    icon: Target, // Pasamos el componente directamente
+    icon: Target,
     title: "Enfoque Estratégico",
     description:
       "No solo escribimos código; entendemos su negocio para ofrecer soluciones que impulsen el crecimiento real.",
@@ -36,7 +35,6 @@ const values = [
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col items-center gap-16 lg:flex-row">
-      {/* Lado Izquierdo: Contenido */}
       <div class="lg:w-1/2">
         <h2
           class="text-primary-600 dark:text-primary-500 mb-2 text-sm font-semibold tracking-wide uppercase"
@@ -53,7 +51,7 @@ const values = [
         <p
           class="mb-8 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
         >
-          En NovaDev, nacimos de la pasión por crear software que no solo
+          En MamboDev, nacimos de la pasión por crear software que no solo
           funcione, sino que destaque. Somos un equipo multidisciplinario
           especializado en convertir desafíos complejos en soluciones digitales
           intuitivas y escalables.
@@ -77,18 +75,14 @@ const values = [
         </div>
       </div>
 
-      {/* Lado Derecho: Grid de Valores */}
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:w-1/2">
         {
           values.map((value) => {
-            // Asignamos el icono a una variable con Mayúscula para usarlo como componente
             const IconComponent = value.icon;
 
             return (
               <div class="bg-primary/10 hover:border-primary-500/50 group rounded-2xl border border-slate-200 p-6 shadow-sm transition-all duration-300 hover:shadow-xl dark:border-slate-700">
                 <div class="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110">
-                  {/* Renderizamos el icono de Lucide. 
-                    Al estar en un archivo .astro sin directiva 'client:', se convierte en SVG estático (Cero JS) */}
                   <IconComponent className="w-6 h-6 text-primary dark:text-primary-400" />
                 </div>
                 <h4 class="mb-2 text-lg font-bold text-slate-900 dark:text-white">

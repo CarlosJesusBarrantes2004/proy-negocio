@@ -6,6 +6,7 @@ const navItems = [
   { label: "Nosotros", href: "#nosotros" },
   { label: "Servicios", href: "#servicios" },
   { label: "Tecnologías", href: "#tecnologias" },
+  { label: "Catálogo", href: "#catalogo" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -18,7 +19,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Code2 className="text-primary h-8 w-8" />
-            <span className="text-foreground text-xl font-bold">DevStudio</span>
+            <span className="text-foreground text-xl font-bold">MamboDev</span>
           </div>
 
           {/* Navegación de Escritorio */}
