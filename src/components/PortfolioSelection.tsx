@@ -22,7 +22,6 @@ export default function PortfolioSection() {
           </p>
         </div>
 
-        {/* Implementación de Tabs de Shadcn */}
         <Tabs
           defaultValue="all"
           onValueChange={(value) => setFilter(value)}

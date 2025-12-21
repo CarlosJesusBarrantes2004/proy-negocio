@@ -1,21 +1,16 @@
 ---
-// 1. Script Frontmatter (Se ejecuta en el servidor/build time)
-
-// Importamos el ícono de Lucide como un componente de React
 import { Code2 } from "lucide-react";
 
-// Definición de datos
 const footerLinks = {
   servicios: [
-    { label: "Desarrollo Web", href: "#servicios" }, // Ajustado el href para ser más útil
+    { label: "Desarrollo Web", href: "#servicios" },
     { label: "Desarrollo Móvil", href: "#servicios" },
     { label: "Automatización", href: "#servicios" },
     { label: "Consultoría", href: "#contacto" },
   ],
   empresa: [
     { label: "Nosotros", href: "#nosotros" },
-    { label: "Proyectos", href: "#proyectos" },
-    { label: "Blog", href: "/blog" },
+    { label: "Proyectos", href: "#catalogo" },
     { label: "Contacto", href: "#contacto" },
   ],
   legal: [
@@ -32,9 +27,6 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
       <div class="col-span-2 md:col-span-1">
         <div class="flex items-center gap-2">
-          {
-            /* Usamos el componente React Icon aquí. Astro lo renderiza estáticamente. */
-          }
           <Code2 className="text-primary h-8 w-8" />
           <span class="text-foreground text-xl font-bold">DevStudio</span>
         </div>
@@ -99,17 +91,14 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
-    {/* Footer Inferior */}
     <div
       class="border-border mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row"
     >
       <p class="text-muted-foreground text-sm">
-        © {currentYear} DevStudio. Todos los derechos reservados.
+        © {currentYear} MamboDev. Todos los derechos reservados.
       </p>
 
-      {/* Íconos de Redes Sociales (HTML Nativo) */}
       <div class="flex gap-4">
-        {/* GitHub */}
         <a
           href="#"
           class="text-muted-foreground hover:text-foreground transition-colors"
@@ -122,7 +111,6 @@ const currentYear = new Date().getFullYear();
               clip-rule="evenodd"></path>
           </svg>
         </a>
-        {/* LinkedIn */}
         <a
           href="#"
           class="text-muted-foreground hover:text-foreground transition-colors"

@@ -1,51 +1,53 @@
 ---
-// 1. Script Frontmatter (Se ejecuta en el servidor/build time)
-
-// Importamos el componente React Button
-import { Button } from "../components/ui/button";
-// Importamos los íconos de Lucide (Componentes React)
-import { ArrowRight, Mail } from "lucide-react";
+import { Mail, Calendar } from "lucide-react";
+import ContactForm from "./ContactForm";
 ---
 
-<section id="contacto" class="py-20 md:py-32">
+<section id="contacto" class="relative py-20 md:py-32">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div
-      class="from-primary/20 via-card to-card border-border relative overflow-hidden rounded-3xl border bg-gradient-to-br p-8 md:p-16"
+      class="from-primary/10 via-card to-card border-border relative overflow-hidden rounded-3xl border bg-gradient-to-br p-8 md:p-12 lg:p-16"
     >
       <div
-        class="bg-primary/10 absolute top-0 right-0 h-96 w-96 translate-x-1/4 -translate-y-1/4 rounded-full blur-3xl"
+        class="bg-primary/20 absolute top-0 right-0 -z-10 h-96 w-96 translate-x-1/4 -translate-y-1/4 rounded-full blur-3xl"
       >
       </div>
 
-      <div class="relative text-center">
-        <h2
-          class="text-foreground text-3xl font-bold text-balance sm:text-4xl lg:text-5xl"
-        >
-          ¿Listo para transformar tu idea en realidad?
-        </h2>
-        <p class="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg">
-          Cuéntanos sobre tu proyecto y te ayudamos a encontrar la mejor
-          solución tecnológica para tu negocio.
-        </p>
+      <div class="relative grid items-center gap-12 lg:grid-cols-2">
+        <div class="text-left">
+          <h2
+            class="text-foreground text-3xl leading-tight font-bold text-balance sm:text-4xl lg:text-5xl"
+          >
+            ¿Listo para transformar tu idea en <span class="text-primary"
+              >realidad?</span
+            >
+          </h2>
+          <p class="text-muted-foreground mt-6 max-w-xl text-lg">
+            Cuéntanos sobre tu proyecto. Estamos listos para integrarnos como tu
+            brazo tecnológico y escalar tu negocio.
+          </p>
 
-        {
-          /* Botones (Usando el componente React Button renderizado estáticamente) */
-        }
-        <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-          <Button size="lg" className="gap-2">
-            <Mail className="h-4 w-4" />
-            Solicitar Cotización
-          </Button>
-
-          <Button size="lg" variant="outline" className="gap-2 bg-transparent">
-            Agendar Llamada
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+          <div class="mt-8 space-y-4">
+            <div class="text-muted-foreground flex items-center gap-3">
+              <div class="bg-primary/10 text-primary rounded-lg p-2">
+                <Calendar className="h-5 w-5" />
+              </div>
+              <span class="text-sm">Agendas disponibles esta semana</span>
+            </div>
+            <div class="text-muted-foreground flex items-center gap-3">
+              <div class="bg-primary/10 text-primary rounded-lg p-2">
+                <Mail className="h-5 w-5" />
+              </div>
+              <span class="text-sm">Respuesta en menos de 24 horas</span>
+            </div>
+          </div>
         </div>
 
-        <p class="text-muted-foreground mt-8 text-sm">
-          Respuesta garantizada en menos de 24 horas
-        </p>
+        <div
+          class="bg-card/50 border-border rounded-2xl border p-6 shadow-xl backdrop-blur-sm"
+        >
+          <ContactForm client:load />
+        </div>
       </div>
     </div>
   </div>
