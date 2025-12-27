@@ -1,5 +1,6 @@
 import urmotors from "../assets/urmotors.png";
 import veterinaria from "../assets/veterinaria.png";
+import pizzeria from "../assets/pizzeria.png";
 
 export const projects = [
   {
@@ -18,5 +19,13 @@ export const projects = [
     tags: ["Django", "React"],
     image: veterinaria,
     size: "large",
+  },
+  {
+    title: "Pizzeria",
+    category: "web",
+    description: "Aplicación Web para una pizzería.",
+    tags: ["Django", "Next.js"],
+    image: pizzeria,
+    size: "medium",
   },
 ];
