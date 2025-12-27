@@ -1,95 +1,146 @@
 ---
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../components/ui/card";
-import { Globe, Server, Smartphone, Zap } from "lucide-react";
-const IconMap = { Globe, Server, Smartphone, Zap };
+import { Globe, Server, Smartphone, Zap, ArrowUpRight } from "lucide-react";
 
 const services = [
   {
-    icon: "Globe",
+    icon: Globe,
     title: "Desarrollo Frontend",
     description:
-      "Creamos sitios web rápidos, seguros y escalables con Astro, Vue, Nuxt, React y Next.js. Carga instantánea y mejor SEO.",
-    features: ["Astro", "Vue", "Nuxt", "React", "Next.js"],
+      "Interfaces ultra-rápidas con carga instantánea. Optimizamos cada píxel para SEO y conversión usando tecnologías de última generación.",
+    features: ["Astro", "React", "Next.js", "Tailwind"],
+    gradient: "from-blue-500 to-cyan-400",
   },
   {
-    icon: "Server",
+    icon: Server,
     title: "Desarrollo Backend",
     description:
-      "Desarrollamos el corazón funcional de tu aplicación con Django (Python). Gestión de datos robusta y segura.",
-    features: ["Django", "Python", "APIs REST", "PostgreSQL"],
+      "Arquitecturas robustas y seguras. Creamos el motor que impulsa tu negocio con gestión de datos de alta disponibilidad.",
+    features: ["Django", "Python", "PostgreSQL", "APIs"],
+    gradient: "from-indigo-600 to-blue-500",
   },
   {
-    icon: "Smartphone",
+    icon: Smartphone,
     title: "Desarrollo Móvil",
     description:
-      "Aplicaciones híbridas de alto rendimiento para iOS y Android con Flutter. Reducimos costos y tiempo de lanzamiento.",
-    features: ["Flutter", "iOS", "Android", "Cross-platform"],
+      "Aplicaciones nativas y multiplataforma que tus usuarios amarán. Rendimiento fluido tanto en iOS como en Android.",
+    features: ["Flutter", "Dart", "Firebase", "UX/UI"],
+    gradient: "from-teal-500 to-emerald-400",
   },
   {
-    icon: "Zap",
+    icon: Zap,
     title: "Automatización",
     description:
-      "Conectamos tus herramientas y automatizamos tareas repetitivas con n8n y Python. CRM, ERP, bases de datos y más.",
-    features: ["n8n", "Python", "APIs", "Integraciones"],
+      "Elimina tareas repetitivas y errores humanos. Conectamos tus herramientas para que tu equipo se enfoque en lo que importa.",
+    features: ["n8n", "Python", "Workflows", "CRMs"],
+    gradient: "from-blue-600 to-indigo-500",
   },
 ];
 ---
 
-<section id="servicios" class="py-20 md:py-32">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-16 text-center">
-      <h2 class="text-foreground text-3xl font-bold sm:text-4xl">
-        Nuestros Servicios
+<section
+  id="servicios"
+  class="relative overflow-hidden bg-slate-50 py-24 md:py-32 dark:bg-[#020617]"
+>
+  <div class="absolute inset-0 z-0 opacity-30 dark:opacity-20">
+    <div
+      class="absolute top-0 left-0 h-full w-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:40px_40px] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)]"
+    >
+    </div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-20 text-center">
+      <h2
+        class="mb-4 inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-bold tracking-widest text-blue-600 uppercase dark:bg-blue-900/30"
+      >
+        Nuestra Expertise
       </h2>
-      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-        Soluciones completas de desarrollo para llevar tu negocio al siguiente
-        nivel
+      <h3
+        class="mb-6 text-4xl font-black text-slate-900 md:text-5xl dark:text-white"
+      >
+        Soluciones que escalan <br />
+        <span
+          class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text font-extrabold text-transparent"
+          >al ritmo de tu visión</span
+        >
+      </h3>
+      <p
+        class="mx-auto max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+      >
+        Combinamos diseño centrado en el usuario con ingeniería de clase mundial
+        para entregar productos digitales excepcionales.
       </p>
     </div>
 
-    <div class="grid gap-6 md:grid-cols-2">
+    <div class="grid gap-8 md:grid-cols-2">
       {
-        services.map((service, index) => {
-          const IconComponent = IconMap[service.icon];
-
+        services.map((service) => {
+          const Icon = service.icon;
           return (
-            // Las props de React se pasan normalmente. 'className' se convierte en 'class'
-            // si el componente Card fuera un componente Astro nativo, pero como es React, se mantiene 'className'.
-            <Card className="bg-card border-border hover:border-primary/50 transition-colors group">
-              <CardHeader>
-                <div class="flex items-center gap-4">
-                  <div class="bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground rounded-lg p-3 transition-colors">
-                    {/* Renderizamos el componente de ícono React. 
-                      NO necesita 'client:' porque no tiene interactividad propia. */}
-                    <IconComponent className="h-6 w-6" />
-                  </div>
-                  <CardTitle className="text-xl text-foreground">
+            <div class="group relative rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-2xl dark:border-slate-800 dark:bg-slate-900/50">
+              <div
+                class={`inline-flex rounded-2xl bg-gradient-to-br p-4 ${service.gradient} mb-6 text-white shadow-lg transition-transform duration-500 group-hover:scale-110`}
+              >
+                <Icon class="h-7 w-7" />
+              </div>
+
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="mb-4 text-2xl font-bold text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
                     {service.title}
-                  </CardTitle>
+                  </h4>
+                  <p class="mb-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                    {service.description}
+                  </p>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground text-base">
-                  {service.description}
-                </CardDescription>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  {service.features.map((feature, i) => (
-                    <span class="bg-secondary text-secondary-foreground inline-flex items-center rounded-full px-3 py-1 text-xs font-medium">
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                <ArrowUpRight class="h-6 w-6 text-slate-300 transition-colors group-hover:text-blue-500 dark:text-slate-700" />
+              </div>
+
+              <div class="flex flex-wrap gap-2 border-t border-slate-100 pt-6 dark:border-slate-800">
+                {service.features.map((feature) => (
+                  <span class="rounded-md border border-slate-200 bg-slate-100 px-3 py-1 text-[10px] font-bold tracking-widest text-slate-500 uppercase transition-colors group-hover:bg-blue-50 group-hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:group-hover:bg-blue-900/20 dark:group-hover:text-blue-400">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              <div class="absolute right-4 bottom-4 opacity-[0.03] transition-opacity group-hover:opacity-10">
+                <Icon class="h-24 w-24" />
+              </div>
+            </div>
           );
         })
       }
     </div>
   </div>
 </section>
+
+<style>
+  /* Animación de entrada opcional */
+  #servicios .group {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Delay escalonado para las tarjetas */
+  #servicios .group:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  #servicios .group:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  #servicios .group:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  #servicios .group:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+</style>

@@ -1,52 +1,83 @@
 ---
-import { Mail, Calendar } from "lucide-react";
+import { Mail, Calendar, Sparkles } from "lucide-react";
 import ContactForm from "./ContactForm";
 ---
 
-<section id="contacto" class="relative py-20 md:py-32">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<section
+  id="contacto"
+  class="relative overflow-hidden bg-white py-24 md:py-40 dark:bg-[#020617]"
+>
+  <div class="absolute inset-0 z-0">
     <div
-      class="from-primary/10 via-card to-card border-border relative overflow-hidden rounded-3xl border bg-gradient-to-br p-8 md:p-12 lg:p-16"
+      class="absolute right-0 bottom-0 h-[500px] w-[500px] animate-pulse rounded-full bg-blue-600/10 blur-[120px]"
     >
-      <div
-        class="bg-primary/20 absolute top-0 right-0 -z-10 h-96 w-96 translate-x-1/4 -translate-y-1/4 rounded-full blur-3xl"
-      >
-      </div>
+    </div>
+    <div
+      class="absolute top-0 left-0 h-[300px] w-[300px] rounded-full bg-teal-500/10 blur-[100px]"
+    >
+    </div>
+  </div>
 
-      <div class="relative grid items-center gap-12 lg:grid-cols-2">
-        <div class="text-left">
-          <h2
-            class="text-foreground text-3xl leading-tight font-bold text-balance sm:text-4xl lg:text-5xl"
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div
+      class="relative overflow-hidden rounded-[3.5rem] border border-slate-200 bg-slate-50/30 p-8 shadow-2xl backdrop-blur-3xl md:p-16 lg:p-20 dark:border-slate-800 dark:bg-slate-900/20"
+    >
+      <div class="grid items-center gap-16 lg:grid-cols-2">
+        <div class="space-y-8">
+          <div
+            class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-xs font-bold tracking-widest text-blue-600 uppercase dark:bg-blue-900/30 dark:text-blue-300"
           >
-            ¿Listo para transformar tu idea en <span class="text-primary"
-              >realidad?</span
+            <Sparkles class="h-4 w-4" />
+            Innovación en cada línea
+          </div>
+
+          <h2
+            class="text-4xl leading-tight font-black tracking-tighter text-slate-900 md:text-6xl dark:text-white"
+          >
+            ¿Listo para <span
+              class="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent"
+              >liderar</span
             >
+            <br /> el mercado?
           </h2>
-          <p class="text-muted-foreground mt-6 max-w-xl text-lg">
-            Cuéntanos sobre tu proyecto. Estamos listos para integrarnos como tu
-            brazo tecnológico y escalar tu negocio.
+
+          <p
+            class="max-w-lg text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+          >
+            No buscamos clientes, buscamos partners. Cuéntanos tu visión y
+            nosotros ponemos la ingeniería.
           </p>
 
-          <div class="mt-8 space-y-4">
-            <div class="text-muted-foreground flex items-center gap-3">
-              <div class="bg-primary/10 text-primary rounded-lg p-2">
-                <Calendar className="h-5 w-5" />
-              </div>
-              <span class="text-sm">Agendas disponibles esta semana</span>
+          <div class="flex flex-wrap gap-4">
+            <div
+              class="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-5 py-3 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
+            >
+              <Calendar class="h-5 w-5 text-blue-600" />
+              <span class="text-sm font-medium dark:text-slate-300"
+                >Agenda disponible</span
+              >
             </div>
-            <div class="text-muted-foreground flex items-center gap-3">
-              <div class="bg-primary/10 text-primary rounded-lg p-2">
-                <Mail className="h-5 w-5" />
-              </div>
-              <span class="text-sm">Respuesta en menos de 24 horas</span>
+            <div
+              class="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-5 py-3 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
+            >
+              <Mail class="h-5 w-5 text-teal-500" />
+              <span class="text-sm font-medium dark:text-slate-300"
+                >Feedback en 24h</span
+              >
             </div>
           </div>
         </div>
 
-        <div
-          class="bg-card/50 border-border rounded-2xl border p-6 shadow-xl backdrop-blur-sm"
-        >
-          <ContactForm client:load />
+        <div class="group relative">
+          <div
+            class="absolute -inset-2 rounded-[3rem] bg-gradient-to-r from-blue-600 to-indigo-500 opacity-10 blur-xl transition duration-1000 group-hover:opacity-20"
+          >
+          </div>
+          <div
+            class="relative rounded-[3rem] border border-slate-100 bg-white p-8 shadow-2xl md:p-12 dark:border-slate-800 dark:bg-slate-950"
+          >
+            <ContactForm client:load />
+          </div>
         </div>
       </div>
     </div>

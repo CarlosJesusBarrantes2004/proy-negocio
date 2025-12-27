@@ -1,115 +1,243 @@
 ---
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Layout, Smartphone, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 ---
 
-<section class="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
-  <div
-    class="from-primary/10 via-background to-background absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]"
-  >
+<section
+  class="relative overflow-hidden bg-slate-50 pt-32 pb-20 transition-colors duration-500 md:pt-48 md:pb-40 dark:bg-[#020617]"
+>
+  <div class="absolute inset-0 z-0">
+    <div
+      class="animate-blob absolute top-0 -left-4 h-72 w-72 rounded-full bg-blue-400 opacity-20 mix-blend-multiply blur-3xl filter"
+    >
+    </div>
+    <div
+      class="animate-blob animation-delay-2000 absolute top-0 -right-4 h-72 w-72 rounded-full bg-teal-400 opacity-20 mix-blend-multiply blur-3xl filter"
+    >
+    </div>
+    <div
+      class="animate-blob animation-delay-4000 absolute -bottom-8 left-20 h-72 w-72 rounded-full bg-indigo-400 opacity-20 mix-blend-multiply blur-3xl filter"
+    >
+    </div>
   </div>
 
-  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid items-center gap-12 lg:grid-cols-2">
-      <div class="text-center lg:text-left">
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-16 lg:grid-cols-2">
+      <div class="animate-fade-in-up text-center lg:text-left">
         <div
-          class="border-border bg-secondary text-muted-foreground mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm"
+          class="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
         >
-          <span class="relative flex h-2 w-2">
+          <span class="relative flex h-3 w-3">
             <span
-              class="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75"
             ></span>
-            <span class="bg-primary relative inline-flex h-2 w-2 rounded-full"
+            <span class="relative inline-flex h-3 w-3 rounded-full bg-blue-600"
             ></span>
           </span>
-          Disponibles para nuevos proyectos
+          Listos para crear tu próximo proyecto
         </div>
 
         <h1
-          class="text-foreground text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+          class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl dark:text-white"
         >
-          Construimos el <span class="text-primary">futuro digital</span> de tu negocio
+          Construimos el <span
+            class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
+            >futuro digital</span
+          > de tu negocio
         </h1>
 
         <p
-          class="text-muted-foreground mx-auto mt-6 max-w-xl text-lg text-pretty lg:mx-0"
+          class="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl lg:mx-0 dark:text-slate-400"
         >
-          Desarrollamos sitios web rápidos, aplicaciones móviles de alto
-          rendimiento y automatizaciones inteligentes. Tu visión, nuestra
-          tecnología.
+          Creamos experiencias digitales que enamoran. Desde aplicaciones
+          móviles intuitivas hasta plataformas web que escalan tu éxito.
         </p>
 
         <div
-          class="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
+          class="mt-12 flex flex-col items-center gap-4 sm:flex-row lg:justify-start"
         >
-          <a href="#contacto"
-            ><Button size="lg" className="gap-2 hover:cursor-pointer">
+          <a href="#contacto" class="w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="w-full gap-2 rounded-full bg-blue-600 px-8 py-7 text-lg text-white shadow-xl shadow-blue-200 transition-all hover:scale-105 hover:cursor-pointer hover:bg-blue-700 dark:shadow-none"
+            >
               Comenzar Proyecto
-              <ArrowRight className="h-4 w-4" />
-            </Button></a
-          >
-          <a href="#catalogo">
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+          </a>
+          <a href="#catalogo" class="w-full sm:w-auto">
             <Button
               size="lg"
               variant="outline"
-              className="gap-2 bg-transparent hover:cursor-pointer"
+              className="w-full gap-2 rounded-full border-2 px-8 py-7 text-lg transition-all hover:cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800"
             >
-              <Play className="h-4 w-4" />
-              Ver Nuestro Trabajo
+              <Play className="h-5 w-5 fill-current" />
+              Ver Portafolio
             </Button>
           </a>
         </div>
       </div>
 
-      <div class="relative hidden lg:block">
-        <div class="relative aspect-square">
+      <div class="animate-fade-in relative hidden lg:block">
+        <div
+          class="relative z-10 w-full rounded-3xl border border-slate-200 bg-white/50 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:rotate-1 dark:border-slate-800 dark:bg-slate-900/50"
+        >
           <div
-            class="from-primary/20 absolute inset-0 rounded-2xl bg-gradient-to-br to-transparent"
+            class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-inner dark:border-slate-800 dark:bg-[#0d1117]"
           >
-          </div>
-          <div
-            class="bg-card border-border absolute inset-4 overflow-hidden rounded-xl border"
-          >
-            <div class="border-border flex items-center gap-2 border-b p-4">
-              <div class="flex gap-1.5">
-                <div class="h-3 w-3 rounded-full bg-red-500/80"></div>
-                <div class="h-3 w-3 rounded-full bg-yellow-500/80"></div>
-                <div class="h-3 w-3 rounded-full bg-green-500/80"></div>
+            <div
+              class="flex items-center justify-between bg-slate-50 px-4 py-3 dark:bg-slate-800/50"
+            >
+              <div class="flex gap-2">
+                <div class="h-3 w-3 rounded-full bg-red-400"></div>
+                <div class="h-3 w-3 rounded-full bg-yellow-400"></div>
+                <div class="h-3 w-3 rounded-full bg-green-400"></div>
               </div>
-              <span class="text-muted-foreground ml-2 font-mono text-xs"
-                >proyecto.tsx</span
+              <span
+                class="font-mono text-[10px] tracking-widest text-slate-400 uppercase"
+                >mambodev_engine.tsx</span
               >
             </div>
-            <div class="p-4 font-mono text-sm">
-              <div class="text-muted-foreground">
-                <span class="text-pink-400">const</span>
-                <span class="text-blue-400">proyecto</span> = {"{"}
+            <div class="p-8 font-mono text-sm leading-relaxed">
+              <div class="flex gap-4">
+                <span class="text-slate-400">01</span>
+                <span
+                  ><span class="text-purple-500">import</span>
+                  {"{ Mambo }"}
+                  <span class="text-purple-500">from</span>
+                  <span class="text-teal-500">'@agency'</span>;</span
+                >
               </div>
-              <div class="text-muted-foreground pl-4">
-                <span class="text-green-400">nombre</span>:{" "}
-                <span class="text-yellow-400">
-                  {'"'}Tu Idea{'"'}
-                </span>
-                ,
+              <div class="flex gap-4">
+                <span class="text-slate-400">02</span>
+                <span
+                  ><span class="font-bold text-blue-500">const</span> Success = ()
+                  ={">"}
+                  {"{"}</span
+                >
               </div>
-              <div class="text-muted-foreground pl-4">
-                <span class="text-green-400">tech</span>:{" "}
-                <span class="text-yellow-400">
-                  {'"'}Moderna{'"'}
-                </span>
-                ,
+              <div class="flex gap-4 pl-8">
+                <span class="text-slate-400">03</span>
+                <span
+                  >return <span class="text-orange-400"
+                    >"🚀 Impulsa tu Negocio"</span
+                  >;</span
+                >
               </div>
-              <div class="text-muted-foreground pl-4">
-                <span class="text-green-400">resultado</span>:{" "}
-                <span class="text-primary">
-                  {'"'}Éxito{'"'}
-                </span>
+              <div class="flex gap-4">
+                <span class="text-slate-400">04</span>
+                <span>{"}"};</span>
               </div>
-              <div class="text-muted-foreground">{"}"}</div>
             </div>
           </div>
+
+          <div class="animate-float absolute -top-6 -right-6">
+            <div
+              class="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-xl dark:border-slate-700 dark:bg-slate-800"
+            >
+              <div
+                class="rounded-lg bg-teal-100 p-2 text-teal-600 dark:bg-teal-900/50"
+              >
+                <Layout className="h-6 w-6" />
+              </div>
+              <div>
+                <p class="text-xs font-bold dark:text-white">Web Design</p>
+                <p class="text-[10px] text-slate-500">High Conversion</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="animate-float-delayed absolute -bottom-8 -left-8">
+            <div
+              class="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-xl dark:border-slate-700 dark:bg-slate-800"
+            >
+              <div
+                class="rounded-lg bg-blue-100 p-2 text-blue-600 dark:bg-blue-900/50"
+              >
+                <Smartphone className="h-6 w-6" />
+              </div>
+              <div>
+                <p class="text-xs font-bold dark:text-white">Mobile Apps</p>
+                <p class="text-[10px] text-slate-500">iOS & Android</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute top-1/2 left-1/2 -z-10 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/5 blur-3xl"
+        >
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Animaciones CSS personalizadas */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float 4s ease-in-out infinite 2s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+</style>

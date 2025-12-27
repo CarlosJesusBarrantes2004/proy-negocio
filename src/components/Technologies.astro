@@ -23,42 +23,60 @@ const technologies = {
 
 <section
   id="tecnologias"
-  class="bg-card/50 border-border border-y py-20 md:py-32"
+  class="relative overflow-hidden bg-white py-24 md:py-32 dark:bg-[#020617]"
 >
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-16 text-center">
-      <h2 class="text-foreground text-3xl font-bold sm:text-4xl">
-        Stack Tecnológico
-      </h2>
-      <p class="text-muted-foreground mx-auto mt-4 max-w-2xl text-lg">
-        Utilizamos las herramientas más modernas y eficientes del mercado
-      </p>
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-20">
+      <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div class="max-w-2xl">
+          <span
+            class="mb-4 inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-bold tracking-widest text-blue-600 uppercase dark:bg-blue-900/30 dark:text-blue-300"
+          >
+            Nuestras Herramientas
+          </span>
+          <h2
+            class="text-4xl leading-tight font-black text-slate-900 md:text-5xl dark:text-white"
+          >
+            Stack de <span
+              class="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text font-extrabold text-transparent"
+              >vanguardia tecnológica</span
+            >
+          </h2>
+        </div>
+        <p
+          class="border-l-2 border-blue-600 pl-6 text-lg text-slate-600 md:max-w-xs dark:text-slate-400"
+        >
+          Seleccionamos solo lo mejor para garantizar velocidad y escalabilidad.
+        </p>
+      </div>
     </div>
 
-    <div class="grid gap-8 md:grid-cols-3">
-      <div class="space-y-4">
+    <div class="grid gap-10 md:grid-cols-3">
+      <div class="flex flex-col gap-6">
         <h3
-          class="text-foreground flex items-center gap-2 text-lg font-semibold"
+          class="flex items-center gap-3 text-xl font-bold text-slate-800 dark:text-slate-200"
         >
-          <span class="bg-primary h-2 w-2 rounded-full"></span>
-          Desarrollo Web
+          <div class="h-1.5 w-8 rounded-full bg-blue-600"></div>
+          Web Ecosystem
         </h3>
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-2 gap-4">
           {
             technologies.web.map((tech) => (
-              <div class="bg-background border-border hover:border-primary/50 group rounded-lg border p-4 transition-all hover:shadow-sm">
-                <div class="flex items-center gap-3">
-                  <Icons
-                    name={tech.icon}
-                    class="text-muted-foreground group-hover:text-primary h-8 w-8 transition-colors"
-                  />
+              <div class="group/card relative rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:border-blue-500/50 dark:border-slate-800 dark:bg-slate-900/40">
+                <div class="flex flex-col gap-3">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-2 shadow-sm transition-transform group-hover/card:scale-110 dark:bg-slate-800">
+                    <Icons
+                      name={tech.icon}
+                      class="h-full w-full object-contain"
+                    />
+                  </div>
                   <div>
-                    <div class="text-foreground leading-none font-medium">
+                    <p class="text-sm leading-tight font-bold text-slate-900 dark:text-white">
                       {tech.name}
-                    </div>
-                    <div class="text-muted-foreground mt-1 text-xs">
+                    </p>
+                    <p class="mt-1 text-[10px] font-semibold tracking-wider text-blue-600 uppercase dark:text-blue-400">
                       {tech.category}
-                    </div>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -67,29 +85,31 @@ const technologies = {
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div class="flex flex-col gap-6">
         <h3
-          class="text-foreground flex items-center gap-2 text-lg font-semibold"
+          class="flex items-center gap-3 text-xl font-bold text-slate-800 dark:text-slate-200"
         >
-          <span class="bg-primary h-2 w-2 rounded-full"></span>
-          Desarrollo Móvil
+          <div class="h-1.5 w-8 rounded-full bg-teal-500"></div>
+          Mobile Apps
         </h3>
-        <div class="grid gap-3">
+        <div class="flex flex-col gap-4">
           {
             technologies.mobile.map((tech) => (
-              <div class="bg-background border-border hover:border-primary/50 group rounded-lg border p-4 transition-all hover:shadow-sm">
-                <div class="flex items-center gap-3">
-                  <Icons
-                    name={tech.icon}
-                    class="text-muted-foreground group-hover:text-primary h-8 w-8 transition-colors"
-                  />
+              <div class="group/card rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:border-teal-500/50 dark:border-slate-800 dark:bg-slate-900/40">
+                <div class="flex items-center gap-5">
+                  <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-white p-3 shadow-sm dark:bg-slate-800">
+                    <Icons
+                      name={tech.icon}
+                      class="h-full w-full object-contain"
+                    />
+                  </div>
                   <div>
-                    <div class="text-foreground leading-none font-medium">
+                    <p class="text-lg font-bold text-slate-900 dark:text-white">
                       {tech.name}
-                    </div>
-                    <div class="text-muted-foreground mt-1 text-xs">
+                    </p>
+                    <p class="text-xs font-semibold text-teal-600 dark:text-teal-400">
                       {tech.category}
-                    </div>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -98,34 +118,49 @@ const technologies = {
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div class="flex flex-col gap-6">
         <h3
-          class="text-foreground flex items-center gap-2 text-lg font-semibold"
+          class="flex items-center gap-3 text-xl font-bold text-slate-800 dark:text-slate-200"
         >
-          <span class="bg-primary h-2 w-2 rounded-full"></span>
-          Automatización
+          <div class="h-1.5 w-8 rounded-full bg-indigo-600"></div>
+          Automation
         </h3>
-        <div class="grid gap-3">
+        <div class="flex flex-col gap-4">
           {
             technologies.automation.map((tech) => (
-              <div class="bg-background border-border hover:border-primary/50 group rounded-lg border p-4 transition-all hover:shadow-sm">
-                <div class="flex items-center gap-3">
-                  <Icons
-                    name={tech.icon}
-                    class="text-muted-foreground group-hover:text-primary h-8 w-8 transition-colors"
-                  />
+              <div class="group/card rounded-2xl border border-slate-200 bg-slate-50 p-5 transition-all hover:border-indigo-500/50 dark:border-slate-800 dark:bg-slate-900/40">
+                <div class="flex items-center gap-5">
+                  <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-white p-3 shadow-sm dark:bg-slate-800">
+                    <Icons
+                      name={tech.icon}
+                      class="h-full w-full object-contain"
+                    />
+                  </div>
                   <div>
-                    <div class="text-foreground leading-none font-medium">
+                    <p class="text-lg font-bold text-slate-900 dark:text-white">
                       {tech.name}
-                    </div>
-                    <div class="text-muted-foreground mt-1 text-xs">
+                    </p>
+                    <p class="text-xs font-semibold text-indigo-600 dark:text-indigo-400">
                       {tech.category}
-                    </div>
+                    </p>
                   </div>
                 </div>
               </div>
             ))
           }
+          <div
+            class="relative mt-auto overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-6 text-white shadow-lg"
+          >
+            <p class="relative z-10 text-sm font-bold italic">
+              ¿Necesitas algo más?
+            </p>
+            <p class="relative z-10 mt-1 text-[10px] opacity-80">
+              Dominamos más herramientas.
+            </p>
+            <div class="absolute -right-6 -bottom-6 rotate-12 opacity-10">
+              <Icons name="react" class="h-24 w-24" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
