@@ -1,6 +1,7 @@
 import urmotors from "../assets/urmotors.png";
 import veterinaria from "../assets/veterinaria.png";
 import pizzeria from "../assets/pizzeria.png";
+import inmobiliaria from "../assets/inmobiliaria.png";
 
 export const projects = [
   {
@@ -27,5 +28,13 @@ export const projects = [
     tags: ["Django", "Next.js"],
     image: pizzeria,
     size: "medium",
+  },
+  {
+    title: "Inmobiliaria",
+    category: "web",
+    description: "Landing Page para una Inmobiliaria.",
+    tags: ["NodeJS", "Vite"],
+    image: inmobiliaria,
+    size: "small",
   },
 ];
