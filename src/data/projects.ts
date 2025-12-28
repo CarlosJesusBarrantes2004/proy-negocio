@@ -4,6 +4,8 @@ import pizzeria from "../assets/pizzeria.png";
 import inmobiliaria from "../assets/inmobiliaria.png";
 import grupoAses from "../assets/grupo-ases.png";
 import sistemaventas from "../assets/sistema-ventas.jpeg";
+import sistemaventas1 from "../assets/sistema-ventas-1.jpeg";
+import sistemaventas2 from "../assets/sistema-ventas-2.jpeg";
 
 export const projects = [
   {
@@ -36,7 +38,11 @@ export const projects = [
     category: "web",
     description: "Sistema de ventas para un negocio de comida rápida.",
     tags: ["Laravel"],
-    image: sistemaventas,
+    images: [
+      sistemaventas.src,
+      sistemaventas1.src,
+      sistemaventas2.src,
+    ],
     size: "large",
   },
   {
