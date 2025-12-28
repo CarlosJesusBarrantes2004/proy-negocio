@@ -35,6 +35,26 @@ export default function Header() {
     opened: { rotate: -45, y: -8 },
   };
 
+  const handleNavClick = (href) => {
+    // 1. Obtenemos el ID de la sección (quitando el #)
+    const targetId = href.replace("#", "");
+    const elem = document.getElementById(targetId);
+
+    if (elem) {
+      // 2. Realizamos el desplazamiento suave
+      elem.scrollIntoView({ behavior: "smooth" });
+
+      // 3. Esperamos un momento a que el desplazamiento inicie/termine y cerramos
+      // Esto asegura que la animación de Framer Motion no choque con el scroll
+      setTimeout(() => {
+        setIsMenuOpen(false);
+      }, 500); // 500ms es suficiente para que el scroll esté en camino o terminado
+    } else {
+      // Si no encuentra el elemento (por si acaso), cerramos igual
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
@@ -89,7 +109,7 @@ export default function Header() {
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg bg-slate-100 dark:bg-slate-800"
+              className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg bg-slate-100 hover:cursor-pointer dark:bg-slate-800"
             >
               <motion.span
                 variants={variantTop}
@@ -123,20 +143,23 @@ export default function Header() {
             <nav className="flex flex-col gap-2 p-6">
               {navItems.map((item, i) => (
                 <motion.a
+                  key={item.label}
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05 }}
-                  key={item.label}
                   href={item.href}
-                  className="rounded-lg py-3 text-lg font-semibold text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-200"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault(); // Bloqueamos el salto brusco nativo
+                    handleNavClick(item.href); // Ejecutamos nuestra lógica
+                  }}
+                  className="block w-full cursor-pointer rounded-lg py-3 text-lg font-semibold text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-200"
                 >
                   {item.label}
                 </motion.a>
               ))}
               <motion.button
                 whileTap={{ scale: 0.95 }}
-                className="mt-4 w-full rounded-xl bg-blue-600 p-4 font-bold text-white shadow-lg shadow-blue-100 dark:shadow-none"
+                className="mt-4 w-full rounded-xl bg-blue-600 p-4 font-bold text-white shadow-lg shadow-blue-100 hover:cursor-pointer dark:shadow-none"
               >
                 Cotizar Proyecto
               </motion.button>

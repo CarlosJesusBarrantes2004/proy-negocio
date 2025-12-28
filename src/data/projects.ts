@@ -2,6 +2,7 @@ import urmotors from "../assets/urmotors.png";
 import veterinaria from "../assets/veterinaria.png";
 import pizzeria from "../assets/pizzeria.png";
 import inmobiliaria from "../assets/inmobiliaria.png";
+import grupoAses from "../assets/grupo-ases.png";
 
 export const projects = [
   {
@@ -11,7 +12,7 @@ export const projects = [
       "Sistema para la gestión de una tienda de venta de repuestos para motos.",
     tags: ["Django", "React"],
     image: urmotors,
-    size: "small",
+    size: "large",
   },
   {
     title: "Veterinaria",
@@ -19,7 +20,7 @@ export const projects = [
     description: "Sistema para gestión de una veterinaria.",
     tags: ["Django", "React"],
     image: veterinaria,
-    size: "large",
+    size: "medium",
   },
   {
     title: "Pizzeria",
@@ -33,8 +34,16 @@ export const projects = [
     title: "Inmobiliaria",
     category: "web",
     description: "Landing Page para una Inmobiliaria.",
-    tags: ["NodeJS", "Vite"],
+    tags: ["React"],
     image: inmobiliaria,
+    size: "small",
+  },
+  {
+    title: "Grupo Ases",
+    category: "web",
+    description: "Landing Page para una Empresa.",
+    tags: ["Next.js"],
+    image: grupoAses,
     size: "small",
   },
 ];
