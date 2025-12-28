@@ -3,6 +3,7 @@ import veterinaria from "../assets/veterinaria.png";
 import pizzeria from "../assets/pizzeria.png";
 import inmobiliaria from "../assets/inmobiliaria.png";
 import grupoAses from "../assets/grupo-ases.png";
+import sistemaventas from "../assets/sistema-ventas.jpeg";
 
 export const projects = [
   {
@@ -31,12 +32,12 @@ export const projects = [
     size: "medium",
   },
   {
-    title: "Inmobiliaria",
+    title: "Sistema de Ventas",
     category: "web",
-    description: "Landing Page para una Inmobiliaria.",
-    tags: ["React"],
-    image: inmobiliaria,
-    size: "small",
+    description: "Sistema de ventas para un negocio de comida rápida.",
+    tags: ["Laravel"],
+    image: sistemaventas,
+    size: "large",
   },
   {
     title: "Grupo Ases",
@@ -44,6 +45,14 @@ export const projects = [
     description: "Landing Page para una Empresa.",
     tags: ["Next.js"],
     image: grupoAses,
-    size: "small",
+    size: "large",
   },
+  {
+    title: "Inmobiliaria",
+    category: "web",
+    description: "Landing Page para una Inmobiliaria.",
+    tags: ["React"],
+    image: inmobiliaria,
+    size: "medium",
+  }
 ];
