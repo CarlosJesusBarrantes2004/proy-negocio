@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Code2, Rocket } from "lucide-react";
-// 1. Cambiamos motion por 'm' y añadimos LazyMotion
+import { Code2 } from "lucide-react";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -16,7 +15,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // 2. Optimizamos el scroll con un listener pasivo para mejor rendimiento en móvil
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -26,14 +24,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
 
-  // 3. Memoizamos el handler para evitar recrearlo en cada render
   const handleNavClick = useCallback((href: string) => {
     const targetId = href.replace("#", "");
     const elem = document.getElementById(targetId);
 
     if (elem) {
       elem.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => setIsMenuOpen(false), 400);
     } else {
       setIsMenuOpen(false);
     }
@@ -50,7 +46,6 @@ export default function Header() {
   };
 
   return (
-    // Usamos LazyMotion para reducir el JS de 30kb a ~5kb
     <LazyMotion features={domAnimation}>
       <header
         className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
@@ -61,7 +56,6 @@ export default function Header() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
-            {/* LOGO - Cambiado a m.div */}
             <m.div
               whileHover={{ scale: 1.05 }}
               className="flex cursor-pointer items-center gap-2"
@@ -144,7 +138,7 @@ export default function Header() {
                     key={item.label}
                     initial={{ x: -10, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.03 }} // Reducido el delay para mayor rapidez percibida
+                    transition={{ delay: i * 0.03 }}
                     href={item.href}
                     onClick={(e) => {
                       e.preventDefault();

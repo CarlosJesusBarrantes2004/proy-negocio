@@ -23,7 +23,7 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
 
     <script is:inline>
-      const theme = (() => {
+      const getTheme = () => {
         if (
           typeof localStorage !== "undefined" &&
           localStorage.getItem("theme")
@@ -31,18 +31,17 @@ const { title, description } = Astro.props;
           return localStorage.getItem("theme");
         }
 
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-      })();
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
 
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
+      const theme = getTheme();
+      if (theme === "dark") {
         document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
       }
-      window.localStorage.setItem("theme", theme);
     </script>
   </head>
   <body>
@@ -53,7 +52,7 @@ const { title, description } = Astro.props;
     <Footer />
 
     <script>
-      import Lenis from 'lenis';
+      import Lenis from "lenis";
 
       // Inicialización básica
       const lenis = new Lenis({
