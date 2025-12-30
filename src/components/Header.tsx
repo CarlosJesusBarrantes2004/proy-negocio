@@ -130,7 +130,11 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden border-b border-slate-200 bg-white md:hidden dark:border-slate-800 dark:bg-slate-950"
+              className={`overflow-hidden border-b md:hidden ${
+              scrolled
+              ? "bg-transparent"
+              : "border-slate-200 bg-white/5 dark:border-slate-800 dark:bg-slate-950/5 backdrop-blur-lg"
+            }`}
             >
               <nav className="flex flex-col gap-2 p-6">
                 {navItems.map((item, i) => (
@@ -142,8 +146,17 @@ export default function Header() {
                     href={item.href}
                     onClick={(e) => {
                       e.preventDefault();
-                      handleNavClick(item.href);
-                    }}
+                      // 1. Cerramos el menú primero
+                      setIsMenuOpen(false);
+                      
+                      // 2. SOLUCIÓN DEL SCROLL:
+                      // Esperamos 100ms a que React comience a cerrar el menú,
+                      // y ENTONCES disparamos el scroll. Esto evita que se cancele.
+                        setTimeout(() => {
+                          handleNavClick(item.href);
+                       }, 100);
+                      }
+                    }
                     className="block w-full rounded-lg py-3 text-lg font-semibold text-slate-700 dark:text-slate-200"
                   >
                     {item.label}
