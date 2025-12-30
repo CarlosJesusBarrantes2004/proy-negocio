@@ -9,6 +9,11 @@ import grupoAses from "../assets/grupo-ases.png";
 import sistemaventas from "../assets/sistema-ventas.jpeg";
 import sistemaventas1 from "../assets/sistema-ventas-1.jpeg";
 import sistemaventas2 from "../assets/sistema-ventas-2.jpeg";
+import movil1 from "../assets/movil_1.png";
+import movil2 from "../assets/movil_2.png";
+import movil3 from "../assets/movil_3.png";
+import movil4 from "../assets/movil_4.png";
+import movil5 from "../assets/movil_5.png";
 
 export const projects = [
   {
@@ -59,5 +64,13 @@ export const projects = [
     tags: ["React", "Tailwind"],
     image: inmobiliaria,
     size: "medium",
+  },
+  {
+    title: "TaskFlow",
+    category: "mobile",
+    description: "App móvil para la getsión de proyectos.",
+    tags: ["React Native", "Expo", "Tailwind", "Django"],
+    images: [movil1.src, movil2.src, movil3.src, movil4.src, movil5.src],
+    size: "large",
   },
 ];
