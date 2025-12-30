@@ -4,7 +4,6 @@ import CTA from "@/components/CTA.astro";
 import AboutUs from "@/components/AboutUs.astro";
 import Hero from "@/components/Hero.astro";
 import Services from "@/components/Services.astro";
-import Stats from "@/components/Stats.astro";
 import Technologies from "@/components/Technologies.astro";
 import PortfolioSection from "@/components/PortfolioSelection";
 
@@ -18,6 +17,6 @@ const pageDescription =
   <AboutUs />
   <Services />
   <Technologies />
-  <PortfolioSection client:load />
+  <PortfolioSection client:visible />
   <CTA />
 </Layout>

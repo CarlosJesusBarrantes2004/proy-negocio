@@ -27,7 +27,7 @@ import ContactForm from "./ContactForm";
           <div
             class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-xs font-bold tracking-widest text-blue-600 uppercase dark:bg-blue-900/30 dark:text-blue-300"
           >
-            <Sparkles class="h-4 w-4" />
+            <Sparkles className="h-4 w-4" />
             Innovación en cada línea
           </div>
 
@@ -52,7 +52,7 @@ import ContactForm from "./ContactForm";
             <div
               class="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-5 py-3 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
             >
-              <Calendar class="h-5 w-5 text-blue-600" />
+              <Calendar className="h-5 w-5 text-blue-600" />
               <span class="text-sm font-medium dark:text-slate-300"
                 >Agenda disponible</span
               >
@@ -60,7 +60,7 @@ import ContactForm from "./ContactForm";
             <div
               class="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-5 py-3 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
             >
-              <Mail class="h-5 w-5 text-teal-500" />
+              <Mail className="h-5 w-5 text-teal-500" />
               <span class="text-sm font-medium dark:text-slate-300"
                 >Feedback en 24h</span
               >
@@ -76,7 +76,7 @@ import ContactForm from "./ContactForm";
           <div
             class="relative rounded-[3rem] border border-slate-100 bg-white p-8 shadow-2xl md:p-12 dark:border-slate-800 dark:bg-slate-950"
           >
-            <ContactForm client:load />
+            <ContactForm client:visible />
           </div>
         </div>
       </div>
