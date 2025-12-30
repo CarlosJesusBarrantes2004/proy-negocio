@@ -44,7 +44,7 @@ const services = [
 >
   <div class="absolute inset-0 z-0 opacity-30 dark:opacity-20">
     <div
-      class="absolute top-0 left-0 h-full w-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:40px_40px] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)]"
+      class="absolute top-0 left-0 h-full w-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [bg-size:40px_40px] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)]"
     >
     </div>
   </div>
@@ -61,7 +61,7 @@ const services = [
       >
         Soluciones que escalan <br />
         <span
-          class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text font-extrabold text-transparent"
+          class="bg-linear-to-r from-blue-600 to-teal-500 bg-clip-text font-extrabold text-transparent"
           >al ritmo de tu visión</span
         >
       </h3>
@@ -84,7 +84,7 @@ const services = [
               spotlightColor="rgba(59, 130, 246, 0.2)"
             >
               <div
-                class={`inline-flex rounded-2xl bg-gradient-to-br p-4 ${service.gradient} mb-6 text-white shadow-lg transition-transform duration-500 group-hover:scale-110`}
+                class={`inline-flex rounded-2xl bg-linear-to-br p-4 ${service.gradient} mb-6 text-white shadow-lg transition-transform duration-500 group-hover:scale-110`}
               >
                 <Icon className="h-7 w-7" />
               </div>
@@ -119,33 +119,3 @@ const services = [
     </div>
   </div>
 </section>
-
-<style>
-  /* Animación de entrada opcional */
-  #servicios .group {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Delay escalonado para las tarjetas */
-  #servicios .group:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  #servicios .group:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  #servicios .group:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-  #servicios .group:nth-child(4) {
-    animation-delay: 0.4s;
-  }
-</style>
