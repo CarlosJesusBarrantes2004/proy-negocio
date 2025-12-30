@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
-  // Inicialización respetando la preferencia del sistema o localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
     const prefersDark = window.matchMedia(

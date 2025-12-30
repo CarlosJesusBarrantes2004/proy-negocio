@@ -1,12 +1,10 @@
 import { useState, useCallback } from "react";
 import { Send, User, AtSign, MessageSquare } from "lucide-react";
-// 1. Importación optimizada
 import { LazyMotion, domAnimation, m } from "framer-motion";
 
 export default function ContactForm() {
   const [focused, setFocused] = useState<string | null>(null);
 
-  // 2. Memorizamos los handlers para evitar recrearlos si el componente re-renderiza
   const handleFocus = useCallback((id: string) => setFocused(id), []);
   const handleBlur = useCallback(() => setFocused(null), []);
 
@@ -111,7 +109,6 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Botón con m.button y willChange */}
         <div className="flex justify-end pt-4">
           <m.button
             whileHover={{ scale: 1.05 }}

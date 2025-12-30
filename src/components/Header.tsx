@@ -92,13 +92,13 @@ export default function Header() {
             {/* Botones */}
             <div className="hidden items-center gap-4 md:flex">
               <ThemeToggle />
-              <m.button
+              {/*<m.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-200 transition-all hover:bg-blue-700 dark:shadow-none"
               >
                 Cotizar <Rocket className="h-4 w-4" />
-              </m.button>
+              </m.button>*/}
             </div>
 
             {/* Menú Móvil Botón */}
@@ -107,7 +107,7 @@ export default function Header() {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Menu"
-                className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg bg-slate-100 dark:bg-slate-800"
+                className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg bg-slate-100 hover:cursor-pointer dark:bg-slate-800"
               >
                 <m.span
                   variants={variantTop}
