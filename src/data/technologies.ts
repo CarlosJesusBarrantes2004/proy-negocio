@@ -10,7 +10,7 @@ export const technologies = {
   ],
   mobile: [
     { name: "Flutter", category: "Híbrido", icon: "flutter" },
-    { name: "React Native", category: "Nativo", icon: "expo" },
+    { name: "React Native", category: "Híbrido", icon: "expo" },
   ],
   automation: [
     { name: "Python", category: "Scripts", icon: "python" },
