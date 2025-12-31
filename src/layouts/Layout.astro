@@ -50,21 +50,5 @@ const { title, description } = Astro.props;
       <slot />
     </main>
     <Footer />
-
-    <script>
-      import Lenis from "lenis";
-
-      // Inicialización básica
-      const lenis = new Lenis({
-        duration: 2, // Ajusta la suavidad aquí
-      });
-
-      function raf(time: number) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-    </script>
   </body>
 </html>

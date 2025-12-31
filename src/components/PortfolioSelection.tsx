@@ -239,7 +239,7 @@ function ProjectCard({
       role="button"
       tabIndex={0}
       aria-label={`Abrir galería ${project.title}`}
-      style={{ willChange: "transform, opacity" }}
+      //style={{ willChange: "transform, opacity" }}
       className={`group relative cursor-pointer overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-900 shadow-xl dark:border-slate-800 ${project.size === "large" ? "md:col-span-2 md:row-span-2" : ""} ${project.size === "medium" ? "md:col-span-1 md:row-span-2" : ""} `}
     >
       <div className="group absolute inset-0 h-full w-full bg-slate-800">
