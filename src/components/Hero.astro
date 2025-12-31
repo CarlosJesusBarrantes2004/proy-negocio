@@ -1,6 +1,7 @@
 ---
 import { ArrowRight, Play, Layout, Smartphone, Zap } from "lucide-react";
 import { Button } from "./ui/button";
+import BlurText from "../components/ui/BlurText";
 ---
 
 <section
@@ -46,12 +47,14 @@ import { Button } from "./ui/button";
           > de tu negocio
         </h1>
 
-        <p
-          class="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl lg:mx-0 dark:text-slate-400"
-        >
-          Creamos soluciones tecnológicas que enamoran. Desde aplicaciones
-          móviles intuitivas hasta plataformas web que escalan tu éxito.
-        </p>
+        <BlurText
+          client:visible
+          text="Creamos soluciones tecnológicas que enamoran. Desde aplicaciones móviles intuitivas hasta plataformas web que escalan tu éxito."
+          className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl lg:mx-0 lg:justify-start justify-center dark:text-slate-400"
+          delay={50}
+          animateBy="words"
+          direction="top"
+        />
 
         <div
           class="mt-12 flex flex-col items-center gap-4 sm:flex-row lg:justify-start"
