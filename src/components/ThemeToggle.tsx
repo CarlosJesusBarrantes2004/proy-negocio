@@ -1,73 +1,80 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window !== "undefined") {
-      return document.documentElement.classList.contains("dark")
-        ? "dark"
-        : "light";
-    }
-    return "light";
-  });
+  // 1. Estado para saber si ya estamos en el cliente
+  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState("light"); // O tu valor por defecto
 
+  // 2. useEffect solo corre en el cliente
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (prefersDark) {
-      setTheme("dark");
-    }
+    // Leemos el tema real del localStorage o del HTML
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+    
+    // Marcamos que ya estamos montados
+    setMounted(true);
   }, []);
 
-  useEffect(() => {
-    const isDark = theme === "dark";
-    document.documentElement.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    
+    // Actualizamos el DOM y localStorage manualmente
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  // 3. LA CLAVE: Si no está montado, renderizamos un "esqueleto" o nada.
+  // Esto evita que el servidor envíe un icono que luego choque con el cliente.
+  if (!mounted) {
+    return (
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-transparent opacity-50 dark:border-slate-800">
+        {/* Renderiza un espacio vacío o un spinner invisible para mantener el tamaño */}
+      </div>
+    );
+  }
 
   return (
     <motion.button
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       onClick={toggleTheme}
-      className={`relative flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-300 hover:cursor-pointer ${
-        theme === "light"
-          ? "border-blue-100 bg-blue-50/50 text-blue-600 shadow-sm hover:bg-blue-100"
-          : "border-slate-800 bg-slate-900 text-yellow-400 hover:border-blue-500/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]"
-      } `}
+      className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm transition-all hover:border-blue-500/50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue-400/50"
+      aria-label="Cambiar tema"
     >
-      <AnimatePresence mode="wait" initial={false}>
-        {theme === "light" ? (
-          <motion.div
-            key="sun"
-            initial={{ y: 10, opacity: 0, rotate: -40 }}
-            animate={{ y: 0, opacity: 1, rotate: 0 }}
-            exit={{ y: -10, opacity: 0, rotate: 40 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Sun className="h-5 w-5" />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="moon"
-            initial={{ y: 10, opacity: 0, rotate: 40 }}
-            animate={{ y: 0, opacity: 1, rotate: 0 }}
-            exit={{ y: -10, opacity: 0, rotate: -40 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Moon className="h-5 w-5 fill-yellow-400/20" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <span className="sr-only">Cambiar tema</span>
+      {/* Animación suave entre iconos */}
+      <motion.div
+        initial={false}
+        animate={{
+          rotate: theme === "dark" ? 0 : 180,
+          scale: theme === "dark" ? 1 : 0,
+          opacity: theme === "dark" ? 1 : 0
+        }}
+        transition={{ duration: 0.3 }}
+        className="absolute"
+      >
+        <Moon className="h-5 w-5 fill-yellow-400/20 text-yellow-400" />
+      </motion.div>
+
+      <motion.div
+        initial={false}
+        animate={{
+          rotate: theme === "light" ? 0 : -180,
+          scale: theme === "light" ? 1 : 0,
+          opacity: theme === "light" ? 1 : 0
+        }}
+        transition={{ duration: 0.3 }}
+        className="absolute"
+      >
+        <Sun className="h-5 w-5 fill-orange-400/20 text-orange-500" />
+      </motion.div>
     </motion.button>
   );
 }

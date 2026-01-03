@@ -7,6 +7,7 @@ export const technologies = {
     { name: "Next.js", category: "Frontend", icon: "next" },
     { name: "Django", category: "Backend", icon: "django" },
     { name: "Tailwind", category: "Frontend", icon: "tailwind" },
+    { name: "Laravel", category: "Backend", icon: "laravel" },
   ],
   mobile: [
     { name: "Flutter", category: "Híbrido", icon: "flutter" },

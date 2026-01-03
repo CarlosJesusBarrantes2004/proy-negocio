@@ -1,6 +1,7 @@
 ---
 import { ArrowRight, Play, Layout, Smartphone, Zap } from "lucide-react";
 import { Button } from "./ui/button";
+import BlurText from "../components/ui/BlurText";
 ---
 
 <section
@@ -46,12 +47,14 @@ import { Button } from "./ui/button";
           > de tu negocio
         </h1>
 
-        <p
-          class="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl lg:mx-0 dark:text-slate-400"
-        >
-          Creamos experiencias digitales que enamoran. Desde aplicaciones
-          móviles intuitivas hasta plataformas web que escalan tu éxito.
-        </p>
+        <BlurText
+          client:visible
+          text="Creamos soluciones tecnológicas que enamoran. Desde aplicaciones móviles intuitivas hasta plataformas web que escalan tu éxito."
+          className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl lg:mx-0 lg:justify-start justify-center dark:text-slate-400"
+          delay={50}
+          animateBy="words"
+          direction="top"
+        />
 
         <div
           class="mt-12 flex flex-col items-center gap-4 sm:flex-row lg:justify-start"
@@ -69,7 +72,7 @@ import { Button } from "./ui/button";
             <Button
               size="lg"
               variant="outline"
-              className="w-full gap-2 rounded-full border-2 px-8 py-7 text-lg transition-all hover:cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="w-full gap-2 rounded-full border-2 px-8 py-7 text-lg transition-all hover:cursor-pointer hover:bg-slate-700 dark:border-slate-800 dark:hover:bg-slate-300"
             >
               <Play className="h-5 w-5 fill-current" />
               Ver Portafolio
@@ -142,7 +145,7 @@ import { Button } from "./ui/button";
               </div>
               <div>
                 <p class="text-xs font-bold dark:text-white">Web Design</p>
-                <p class="text-[10px] text-slate-500">High Conversion</p>
+                <p class="text-[10px] text-slate-500">Alta Conversión</p>
               </div>
             </div>
           </div>
