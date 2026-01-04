@@ -1,4 +1,12 @@
 ---
+type IconName = keyof typeof icons;
+
+interface Props {
+  name: IconName;
+  class?: string;
+  [key: string]: any;
+}
+
 const { name, class: className, ...props } = Astro.props;
 
 const icons = {

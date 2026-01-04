@@ -75,7 +75,7 @@ export default function PortfolioSection() {
             </span>
             <h2 className="text-4xl font-black tracking-tight text-slate-900 md:text-5xl dark:text-white">
               Nuestro{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
                 Catálogo
               </span>
             </h2>
@@ -260,7 +260,7 @@ function ProjectCard({
 
       <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/40 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
 
-      <div className="absolute top-4 right-4 z-20 translate-y-[-10px] rounded-full bg-white/10 p-3 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:bg-blue-600 group-hover:opacity-100">
+      <div className="absolute top-4 right-4 z-20 -translate-y-2.5 rounded-full bg-white/10 p-3 text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:bg-blue-600 group-hover:opacity-100">
         <Maximize2 size={18} />
       </div>
 
