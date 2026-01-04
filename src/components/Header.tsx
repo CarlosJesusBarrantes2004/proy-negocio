@@ -65,7 +65,7 @@ export default function Header() {
                 <Code2 className="h-6 w-6 text-white" />
               </div>
               <span className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                Mambo<span className="text-blue-600">Dev</span>
+                Mambo<span className="text-blue-600">Soft</span>
               </span>
             </m.div>
 
