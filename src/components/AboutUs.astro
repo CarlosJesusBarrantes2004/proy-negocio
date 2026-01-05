@@ -53,6 +53,35 @@ const values = [
     color: "purple",
   },
 ];
+
+const stats = [
+  {
+    label: "Compromiso",
+    type: "counter",
+    value: 100,
+    suffix: "%",
+    isBlue: true,
+  },
+  {
+    label: "Proyectos",
+    type: "counter",
+    value: 10,
+    prefix: "+",
+    isBlue: false,
+  },
+  {
+    label: "Soporte",
+    type: "text",
+    text: "24/7",
+    isBlue: true,
+  },
+  {
+    label: "Innovación",
+    type: "text",
+    text: "🚀",
+    isBlue: false,
+  },
+];
 ---
 
 <section
@@ -135,7 +164,7 @@ const values = [
               const Icon = value.icon;
 
               return (
-                <PopIn client:visible delay={i * 0.4} className="h-full">
+                <PopIn client:visible delay={i * 0.3} className="h-full">
                   <SpotlightCard
                     client:visible
                     className="group h-full rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
@@ -163,37 +192,30 @@ const values = [
       <div
         class="grid grid-cols-2 gap-8 border-y border-slate-100 py-12 md:grid-cols-4 dark:border-slate-800"
       >
-        <div class="text-center">
-          <p class="text-4xl font-black text-blue-600">
-            <Counter client:visible value={100} />%
-          </p>
-          <p class="text-xs font-bold tracking-widest text-slate-400 uppercase">
-            Compromiso
-          </p>
-        </div>
+        {
+          stats.map((stat, i) => (
+            <PopIn client:visible delay={i * 0.2} className="text-center">
+              <p
+                class={`text-4xl font-black ${stat.isBlue ? "text-blue-600" : "text-slate-900 dark:text-white"}`}
+              >
+                {/* Lógica condicional: ¿Es un contador o texto fijo? */}
+                {stat.type === "counter" ? (
+                  <>
+                    {stat.prefix}
+                    {<Counter client:visible value={stat.value ?? 0} />}
+                    {stat.suffix}
+                  </>
+                ) : (
+                  stat.text
+                )}
+              </p>
 
-        <div class="text-center">
-          <p class="text-4xl font-black text-slate-900 dark:text-white">
-            +<Counter client:visible value={10} />
-          </p>
-          <p class="text-xs font-bold tracking-widest text-slate-400 uppercase">
-            Proyectos
-          </p>
-        </div>
-
-        <div class="text-center">
-          <p class="text-4xl font-black text-blue-600">24/7</p>
-          <p class="text-xs font-bold tracking-widest text-slate-400 uppercase">
-            Soporte
-          </p>
-        </div>
-
-        <div class="text-center">
-          <p class="text-4xl font-black text-slate-900 dark:text-white">🚀</p>
-          <p class="text-xs font-bold tracking-widest text-slate-400 uppercase">
-            Innovación
-          </p>
-        </div>
+              <p class="text-xs font-bold tracking-widest text-slate-400 uppercase">
+                {stat.label}
+              </p>
+            </PopIn>
+          ))
+        }
       </div>
     </div>
   </div>
