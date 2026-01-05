@@ -2,7 +2,9 @@
 import { Target, Users, ShieldCheck, Rocket, Award } from "lucide-react";
 import SpotlightCard from "../components/ui/SpotlightCard";
 import Counter from "../components/ui/Counter";
-import Reveal from "../components/ui/Reveal";
+import Reveal from "@/components/ui/Reveal";
+import BlurText from "../components/ui/BlurText";
+import PopIn from "@/components/ui/PopIn";
 
 const founders = [
   {
@@ -66,51 +68,62 @@ const values = [
     <div class="flex flex-col gap-20">
       <div class="flex flex-col items-center gap-12 lg:flex-row">
         <div class="lg:w-1/2">
-          <span
-            class="mb-4 inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-bold tracking-widest text-blue-600 uppercase dark:bg-blue-900/30 dark:text-blue-300"
+          <Reveal
+            client:visible
+            direction="up"
+            delay={0.2}
+            className="mb-4 inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-bold tracking-widest text-blue-600 uppercase dark:bg-blue-900/30 dark:text-blue-300"
           >
             Nuestra Esencia
-          </span>
-          <h2
-            class="mb-6 text-4xl leading-tight font-extrabold text-slate-900 md:text-5xl dark:text-white"
+          </Reveal>
+          <Reveal
+            client:visible
+            direction="up"
+            delay={0.2}
+            className="mb-6 text-4xl leading-tight font-extrabold text-slate-900 md:text-5xl dark:text-white"
           >
             Impulsando la transformación con <span
               class="bg-linear-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
               >precisión técnica</span
             >
-          </h2>
-          <span
-            class="mb-8 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+          </Reveal>
+          <Reveal
+            client:visible
+            direction="up"
+            delay={0.4}
+            className="mb-8 text-lg leading-relaxed text-slate-600 dark:text-slate-400"
           >
             En MamboSoft, no solo escribimos código. Somos artesanos digitales
             dedicados a convertir desafíos complejos en soluciones que se
             sienten naturales y potentes.
-        </span>
+          </Reveal>
 
           <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {
-              founders.map((founder) => (
-                <div class="group flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-all duration-300 hover:border-blue-500/50 dark:border-slate-800 dark:bg-slate-900/50">
-                  <div class="relative">
-                    <div class="absolute inset-0 bg-blue-400 opacity-0 blur-lg transition-opacity group-hover:opacity-20" />
-                    <img
-                      src={founder.avatar}
-                      alt={founder.name}
-                      class="animate-float-slow relative h-16 w-16 rounded-full border-2 border-blue-100 bg-white dark:border-blue-900 dark:bg-slate-800"
-                    />
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-slate-900 dark:text-white">
-                      {founder.name}
-                    </h4>
-                    <p class="mb-1 text-xs font-medium text-blue-600 dark:text-blue-400">
-                      {founder.role}
-                    </p>
-                    <div class="flex items-center gap-1 text-[10px] tracking-tighter text-slate-500 uppercase">
-                      <Award className="h-3 w-3" /> {founder.exp}
+              founders.map((founder, i) => (
+                <PopIn client:visible delay={i * 0.1}>
+                  <div class="group flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-all duration-300 hover:border-blue-500/50 dark:border-slate-800 dark:bg-slate-900/50">
+                    <div class="relative">
+                      <div class="absolute inset-0 bg-blue-400 opacity-0 blur-lg transition-opacity group-hover:opacity-20" />
+                      <img
+                        src={founder.avatar}
+                        alt={founder.name}
+                        class="animate-float-slow relative h-16 w-16 rounded-full border-2 border-blue-100 bg-white dark:border-blue-900 dark:bg-slate-800"
+                      />
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-slate-900 dark:text-white">
+                        {founder.name}
+                      </h4>
+                      <p class="mb-1 text-xs font-medium text-blue-600 dark:text-blue-400">
+                        {founder.role}
+                      </p>
+                      <div class="flex items-center gap-1 text-[10px] tracking-tighter text-slate-500 uppercase">
+                        <Award className="h-3 w-3" /> {founder.exp}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </PopIn>
               ))
             }
           </div>
@@ -122,23 +135,25 @@ const values = [
               const Icon = value.icon;
 
               return (
-                <SpotlightCard
-                  client:visible
-                  className="group rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
-                  spotlightColor="rgba(59, 130, 246, 0.2)"
-                >
-                  <div class="mb-5 inline-flex rounded-2xl bg-blue-50 p-3 text-blue-600 transition-transform duration-300 group-hover:scale-110 dark:bg-blue-900/30 dark:text-blue-400">
-                    <Icon className="h-7 w-7" />
-                  </div>
+                <PopIn client:visible delay={i * 0.4} className="h-full">
+                  <SpotlightCard
+                    client:visible
+                    className="group h-full rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+                    spotlightColor="rgba(59, 130, 246, 0.2)"
+                  >
+                    <div class="mb-5 inline-flex rounded-2xl bg-blue-50 p-3 text-blue-600 transition-transform duration-300 group-hover:scale-110 dark:bg-blue-900/30 dark:text-blue-400">
+                      <Icon className="h-7 w-7" />
+                    </div>
 
-                  <h4 class="mb-3 text-xl font-bold text-slate-900 dark:text-white">
-                    {value.title}
-                  </h4>
+                    <h4 class="mb-3 text-xl font-bold text-slate-900 dark:text-white">
+                      {value.title}
+                    </h4>
 
-                  <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    {value.description}
-                  </p>
-                </SpotlightCard>
+                    <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                      {value.description}
+                    </p>
+                  </SpotlightCard>
+                </PopIn>
               );
             })
           }
