@@ -1,5 +1,6 @@
 import React from "react";
-import { m, type MotionProps, type Variants } from "framer-motion";
+// CAMBIO 1: Importamos 'motion' en lugar de 'm'
+import { motion, type MotionProps, type Variants } from "framer-motion";
 
 interface RevealProps extends MotionProps {
   children: React.ReactNode;
@@ -33,7 +34,6 @@ const Reveal: React.FC<RevealProps> = ({
     }
   };
 
-
   const initialVariants: Variants = {
     hidden: { 
       opacity: 0, 
@@ -54,16 +54,18 @@ const Reveal: React.FC<RevealProps> = ({
   };
 
   return (
-    <m.div
+    // CAMBIO 2: Usamos motion.div
+    <motion.div
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      // Ajusté el margen a -20px para asegurar que dispare más fácil
+      viewport={{ once: true, margin: "-50px" }} 
       variants={initialVariants}
       {...props}
     >
       {children}
-    </m.div>
+    </motion.div>
   );
 };
 

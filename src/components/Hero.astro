@@ -2,6 +2,7 @@
 import { ArrowRight, Play, Layout, Smartphone, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import BlurText from "../components/ui/BlurText";
+import Reveal from "../components/ui/Reveal";
 ---
 
 <section
@@ -24,9 +25,12 @@ import BlurText from "../components/ui/BlurText";
 
   <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid items-center gap-16 lg:grid-cols-2">
-      <div class="animate-fade-in-up text-center lg:text-left">
-        <div
-          class="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
+      <div class="text-center lg:text-left">
+        <Reveal
+          client:visible
+          direction="up"
+          delay={0.2}
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
         >
           <span class="relative flex h-3 w-3">
             <span
@@ -36,22 +40,26 @@ import BlurText from "../components/ui/BlurText";
             ></span>
           </span>
           Listos para crear tu próximo proyecto
-        </div>
+        </Reveal>
 
-        <h1
-          class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl dark:text-white"
+        <Reveal
+          client:visible
+          direction="up"
+          delay={0.2}
+          className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl dark:text-white"
         >
-          Construimos el <span
+          Construimos el
+          <span
             class="bg-linear-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent"
             >futuro digital</span
           > de tu negocio
-        </h1>
+        </Reveal>
 
         <BlurText
           client:visible
           text="Creamos soluciones tecnológicas que enamoran. Desde aplicaciones móviles intuitivas hasta plataformas web que escalan tu éxito."
-          className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl lg:mx-0 lg:justify-start justify-center dark:text-slate-400"
-          delay={50}
+          className="mx-auto mt-8 max-w-xl justify-center text-lg leading-relaxed text-slate-600 md:text-xl lg:mx-0 lg:justify-start dark:text-slate-400"
+          delay={100}
           animateBy="words"
           direction="top"
         />
@@ -59,29 +67,38 @@ import BlurText from "../components/ui/BlurText";
         <div
           class="mt-12 flex flex-col items-center gap-4 sm:flex-row lg:justify-start"
         >
-          <a href="#contacto" class="w-full sm:w-auto">
-            <Button
-              size="lg"
-              className="w-full gap-2 rounded-full bg-blue-600 px-8 py-7 text-lg text-white shadow-xl shadow-blue-200 transition-all hover:scale-105 hover:cursor-pointer hover:bg-blue-700 dark:shadow-none"
-            >
-              Comenzar Proyecto
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          </a>
-          <a href="#catalogo" class="w-full sm:w-auto">
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full gap-2 rounded-full border-2 px-8 py-7 text-lg transition-all hover:cursor-pointer hover:bg-slate-700 dark:border-slate-800 dark:hover:bg-slate-300"
-            >
-              <Play className="h-5 w-5 fill-current" />
-              Ver Portafolio
-            </Button>
-          </a>
+          <Reveal client:visible direction="up" delay={0.2}>
+            <a href="#contacto" class="w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="w-full gap-2 rounded-full bg-blue-600 px-8 py-7 text-lg text-white shadow-xl shadow-blue-200 transition-all hover:scale-105 hover:cursor-pointer hover:bg-blue-700 dark:shadow-none"
+              >
+                Comenzar Proyecto
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </a>
+          </Reveal>
+          <Reveal client:visible direction="up" delay={0.5}>
+            <a href="#catalogo" class="w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full gap-2 rounded-full border-2 px-8 py-7 text-lg transition-all hover:cursor-pointer hover:bg-slate-700 dark:border-slate-800 dark:hover:bg-slate-300"
+              >
+                <Play className="h-5 w-5 fill-current" />
+                Ver Portafolio
+              </Button>
+            </a>
+          </Reveal>
         </div>
       </div>
 
-      <div class="animate-fade-in relative hidden lg:block">
+      <Reveal
+        client:visible
+        direction="right"
+        delay={0.2}
+        className="relative hidden lg:block"
+      >
         <div
           class="relative z-10 w-full rounded-3xl border border-slate-200 bg-white/50 p-4 shadow-2xl backdrop-blur-xl transition-transform hover:rotate-1 dark:border-slate-800 dark:bg-slate-900/50"
         >
@@ -119,7 +136,7 @@ import BlurText from "../components/ui/BlurText";
                   {"{"}</span
                 >
               </div>
-              <div class="flex gap-4 ">
+              <div class="flex gap-4">
                 <span class="text-slate-400">03</span>
                 <span
                   >return <span class="text-orange-400"
@@ -171,7 +188,7 @@ import BlurText from "../components/ui/BlurText";
           class="absolute top-1/2 left-1/2 -z-10 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/5 blur-3xl"
         >
         </div>
-      </div>
+      </Reveal>
     </div>
   </div>
 </section>
@@ -216,31 +233,5 @@ import BlurText from "../components/ui/BlurText";
   }
   .animate-float-delayed {
     animation: float 4s ease-in-out infinite 2s;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
   }
 </style>
